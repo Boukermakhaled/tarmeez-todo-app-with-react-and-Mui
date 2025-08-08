@@ -1,26 +1,23 @@
 import { toDoContext } from "./Context/ToDoContext";
-import { useContext } from "react";
 import Task from "./Task";
-import { Alert, Button } from "@mui/material";
-import Grid from "@mui/material/Grid";
+import { Button } from "@mui/material";
 import TextField from "@mui/material/TextField";
-import { useState } from "react";
-import { CheckCircleOutline } from "@mui/icons-material";
+import { useState, useContext, useEffect } from "react";
 export default function AllTasks(){
          const [val, setVal] = useState('');
-         let ale;
          const [{toDo,setToDo}] = useContext(toDoContext);
+         useEffect(()=>{
+            const list= JSON.parse(localStorage.getItem("todoList"));
+            setToDo(list);
+         },[]);
+         
          function handelClick(){
-          setToDo([...toDo,{id:toDo.length++, content: val}]);
+            const updated = [...toDo,{id:toDo.length++, content: val}];
+          setToDo(updated);
+          localStorage.setItem("todoList", JSON.stringify(updated));
           setVal("")
-           ale = Ale();
-        // console.log(toDo)
-          
          }
-        function Ale(){
-            // return 
-// alert("wegjwjheg");
-        }
+       
          const todoList = toDo.map((t) => {
             return <Task key={t.id} toDO={t} />
          })
