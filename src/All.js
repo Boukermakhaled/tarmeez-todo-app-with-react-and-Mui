@@ -18,7 +18,7 @@ export default function AllTasks(){
         //   setVal("")
         //  }
        
-         const todoList = toDo.map((t) => {
+         const todoList = (Array.isArray(toDo) ? toDo : []).map((t) => {
             return <Task key={t.id} toDO={t} />
          })
          

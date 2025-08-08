@@ -7,8 +7,13 @@ export default function TxtF(){
     const [val, setVal] = useState('');
              const [{toDo,setToDo}] = useContext(toDoContext);
              useEffect(()=>{
-                const list= JSON.parse(localStorage.getItem("todoList"));
-                setToDo(list);
+                try{
+                  const raw = localStorage.getItem("todoList");
+                  const parsed = raw ? JSON.parse(raw) : [];
+                  setToDo(Array.isArray(parsed) ? parsed : []);
+                }catch{
+                  setToDo([]);
+                }
              },[]);
              
              function handelClick(){
