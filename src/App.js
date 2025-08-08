@@ -11,6 +11,7 @@ import { toDoContext } from './Context/ToDoContext';
 import Done from './Done';
 import Undone from './Undone';
 import { useState } from 'react';
+import TxtF from './txtField';
 
 function App() {
   const [toDo, setToDo] = useState([
@@ -33,11 +34,14 @@ function App() {
          <hr></hr>
          <NavBar />
          <toDoContext.Provider value={[{toDo, setToDo}]}>
+          <div className='list'>
          <Routes>
-        <Route path='/All' element={<AllTasks />}></Route>
-        <Route path='/Done' element={<Done />}></Route>
-        <Route path='/Undone' element={<Undone />}></Route>
+        <Route path='/' element={<AllTasks className="list"/>}></Route>
+        <Route path='/Done' element={<Done className="list"/>}></Route>
+        <Route path='/Undone' element={<Undone className="list"/>}></Route>
       </Routes>
+      </div>
+      <TxtF />
       </toDoContext.Provider>
         </CardContent>
       </Card>

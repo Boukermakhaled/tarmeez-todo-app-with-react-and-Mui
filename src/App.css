@@ -42,3 +42,7 @@ body{
 hr{
   width: 100%;
 }
+.list{
+  height:280px !important;
+  overflow-y: auto !important;
+}
