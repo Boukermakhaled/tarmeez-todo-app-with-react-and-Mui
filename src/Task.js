@@ -137,7 +137,8 @@ export default function Task({toDO}){
                 </Stack>
                 </Grid>
                <Grid size={6}>
-                <div style={{height:"100%",display:"flex", justifyContent:"center",alignItems:"end",flexDirection:"column"}}><Typography variant="h4">{toDO.content}</Typography>
+                <div style={{height:"100%",display:"flex", justifyContent:"center",alignItems:"end",flexDirection:"column"}}>
+                    <Typography variant="h4" sx={{textDecoration: toDO.status ? "line-through" : "none"}}>{toDO.content}</Typography>
                 </div>
                 </Grid>
                 

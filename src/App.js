@@ -2,7 +2,8 @@ import './App.css';
 import Card from '@mui/material/Card'
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
-import { Container,Button, Stack, Alert } from '@mui/material';
+import { Container,Button, Stack, Alert} from '@mui/material';
+import { createTheme, ThemeProvider } from '@mui/material/styles'
 import { Routes, Route } from 'react-router-dom';
 import NavBar from './navBar';
 import AllTasks from './All';
@@ -12,7 +13,14 @@ import Done from './Done';
 import Undone from './Undone';
 import { useState } from 'react';
 import TxtF from './txtField';
-
+    
+     const theme = createTheme({
+      palette:{
+        primary:{
+          main: '#1e88e5'
+        }
+      }
+     })
 function App() {
   const [toDo, setToDo] = useState([
             {
@@ -25,7 +33,7 @@ function App() {
          
   return (
     <div className="App">
-      
+      <ThemeProvider theme={theme}>
      <Container maxWidth="md" style={{display:"flex", justifyContent:"center", alignItems:"center"}}>
       <Card style={{marginTop:"60px", height:"500px",width:"80%",borderRadius:"24px"}}>
         <CardContent >
@@ -46,6 +54,7 @@ function App() {
         </CardContent>
       </Card>
       </Container>
+      </ThemeProvider>
     </div>
   );
 }

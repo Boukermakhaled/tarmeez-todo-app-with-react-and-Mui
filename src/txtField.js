@@ -18,13 +18,11 @@ export default function TxtF(){
               setVal("")
              }
            
-            //  const todoList = toDo.map((t) => {
-            //     return <Task key={t.id} toDO={t} />
-            //  })
+        
     return(
         <div style={{marginTop:"20px",display:"flex",justifyContent:"center",gap:"20px"}}>
-        <Button variant="contained" size="large" color="secondary" style={{borderRadius:"20px"}} onClick={() =>{handelClick();}}>اضافة</Button>
-        <TextField variant="outlined" style={{width:"80%"}} value={val} onChange={(e) => {setVal(e.target.value)}}></TextField>
+        <Button variant="contained" size="large" color="secondary" style={{borderRadius:"20px",width:"20%"}} onClick={() =>{handelClick();}} disabled={val === '' ? true : false}>اضافة</Button>
+        <TextField variant="outlined" style={{width:"70%",borderRadius:"20px"}} value={val} onChange={(e) => {setVal(e.target.value)}}></TextField>
         </div>
         
     )
