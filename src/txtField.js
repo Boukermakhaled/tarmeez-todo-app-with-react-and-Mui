@@ -8,7 +8,8 @@ export default function TxtF(){
              const [{toDo,setToDo}] = useContext(toDoContext);
              useEffect(()=>{
                 const list= JSON.parse(localStorage.getItem("todoList"));
-                setToDo(list);
+                if (Array.isArray(list) && list.length !== 1){
+                setToDo(list);}
              },[]);
              
              function handelClick(){
