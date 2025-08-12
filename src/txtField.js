@@ -8,7 +8,7 @@ export default function TxtF(){
              const [{toDo,setToDo}] = useContext(toDoContext);
              useEffect(()=>{
                 const list= JSON.parse(localStorage.getItem("todoList"));
-                if (Array.isArray(list) && list.length !== 1){
+                if (Array.isArray(list) ){
                 setToDo(list);}
              },[]);
              
