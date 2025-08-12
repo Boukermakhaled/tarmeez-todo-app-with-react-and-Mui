@@ -25,7 +25,7 @@ function App() {
   const [toDo, setToDo] = useState([
             {
                 id:0,
-                content:'',
+                content:'سيي ياجايح',
                 status:false,
                 confirmed:false
             }
